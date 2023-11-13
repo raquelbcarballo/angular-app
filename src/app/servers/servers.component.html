@@ -1,0 +1,44 @@
+<!-- databinding output property -->
+<!-- Easy interaction with your DOM to change things dynamically -->
+<!-- <button class="btn btn-primary"
+    [disabled]="!allowNewServer">
+    Add Server
+</button> -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+
+<label>Server name</label>
+<!-- we can capture the data with dollar sign event -->
+<!-- <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"> -->
+<!-- <p>{{serverName}}</p> -->
+
+<!-- 2 way binding: this will trigger on the input event and update the value of the input element -->
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName">
+
+<!-- databinding reactions = events -->
+<button class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">
+    Add Server
+</button>
+
+<p>{{serverCreationStatus}}</p>
+
+<app-server></app-server>
+<app-server></app-server>
+
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="username">
+<p>User name is: {{username}}</p>
+<button class="btn btn-primary"
+    [disabled]="!username"
+    (click)="onUsername()">
+    Reset username
+</button>
